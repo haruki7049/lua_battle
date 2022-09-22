@@ -4,11 +4,14 @@ require() --objects are required which are player, slime, and unko.
 require()
 require()
 
+math.randomseed(os.time()) -- randomseed is reseted
+
 --[[ ToDo: battle process object
 battleProcess = {
 	attacker = {player = 1, slime = 2, unko = 3}
 
 }--]]
+
 local diedEnemy
 
 while player.hp >= 0 or diedEnemy >= 0 do
@@ -23,7 +26,8 @@ while player.hp >= 0 or diedEnemy >= 0 do
 
 	print("slime turn")
 	print("attack or defence")
-	action = --ToDo: Random
+	slimeAction = math.random(1,2)
+	action = slimeAction
 	if action == 1 then -- attack
 		-- attack process
 	elseif action == 2 then -- defence
@@ -32,7 +36,8 @@ while player.hp >= 0 or diedEnemy >= 0 do
 	
 	print("unko turn")
 	print("attack or defence")
-	action = --ToDo: Random
+	unkoAction = math.random(1,2)
+	action = unkoAction
 	if action == 1 then -- attack
 		-- attack process
 	elseif action == 2 then -- defence
@@ -41,7 +46,7 @@ while player.hp >= 0 or diedEnemy >= 0 do
 end
 
 if player.hp >= 0 then
-	print(you are died...)
+	print("you are died...")
 elseif diedEnemy >= 0 then
-	print(you are nice!! Enemies killed.)
+	print("you are nice!! Enemies killed.")
 end
